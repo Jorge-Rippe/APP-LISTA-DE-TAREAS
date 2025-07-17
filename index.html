@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE TAREAS DE JORGE</title>
+    <style>
+        :root {
+           --primary-grad: linear-gradient(90deg,#16a34a);     
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 35px;
+      background: #f9fafb;
+    }
+    h1 {
+      margin-bottom: 20px;
+      background: var(--primary-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: rgb(16, 78, 16);
+      font-size: 35px;
+    }
+    #taskInput {
+      width: 25%;
+      padding: 15px 20px;
+      border: 1px solid gray;
+      border-radius: 25px;
+      font-size: 15px;
+    }
+    #addBtn {
+      padding: 12px 20px;
+      margin-left: 15px;
+      border: none;
+      border-radius: 20px;
+      color: #fff;
+      background: var(--primary-grad);
+      cursor: pointer;
+    }
+    .filters button {
+    padding: 8px 13px;
+    border: none;
+    border-radius: 20px;
+    background: #16a34a;
+    cursor: pointer;
+    }
+    .filters button.active {
+    background: var(--primary-grad);
+    color: #fff;
+    font-weight: 600;
+    }
+    .stats { 
+    background:#f3efef; 
+    border-radius:1rem; 
+    padding:1.5rem; 
+    }
+    .cards { 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); 
+    gap:1rem; 
+    }
+    .card { 
+    text-align:center; 
+    padding:1rem; 
+    border-radius:.75rem; 
+    }
+    .total { 
+    background:rgb(255, 255, 255);  
+    color:black; 
+    }
+    .done { 
+    background:rgb(179, 245, 223);  
+    color:rgb(4, 163, 110); 
+    }
+    .pending { 
+    background: rgb(250, 221, 168);  
+    color:rgb(248, 162, 3); 
+    }
+    .progress-card { 
+    background:#b3acd8; 
+    color:#6519e7; 
+    }
+    .bar { 
+    height:8px; 
+    background:#b3acd8; 
+    border-radius:7px; 
+    }
+    .bar span { 
+    display:block; 
+    height:100%; 
+    background:var(--primary-grad); 
+    border-radius:4px; 
+    width:0%; 
+    }
+    table
+    {
+    border: 2px solid rgb(19, 2, 2);
+    width: 500px;
+    margin-top: 20px;
+    text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <h1>LISTA DE TAREAS DE JORGE</h1>
+    <input type="text" id="taskInput" placeholder="Escribe una nueva tarea">
+    <button id="addBtn">Agregar Tarea</button>
+    <br>
+    <br>
+    <section class="stats" id="stats">
+    <div class="cards">
+    <div id= "statTotal" class="card total">0<br><small>Total</small></div>
+    <div id= "statDone" class="card done">0<br><small>Completadas</small></div>
+    <div id= "statPending" class="card pending">0<br><small>Pendientes</small></div>
+    <div id= "statProgress" class="card progress-card">0%<br><small>Progreso</small></div>
+    </div>    
+  <p style = "margin-top: 15px;">Progreso General</p>
+  <div class="bar">
+    <span id="barFill"></span></div>  
+  </section>
+  
+  <br>
+    <div class="filters">
+        <button id="allBtn" class="active">Todas las Tareas</button>
+        <button id="completedBtn" class="active">Completas</button>
+        <button id="pendingBtn" class="active">Pendientes</button>  
+    </div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>✔</th>
+      <th>Tarea</th>
+      <th>Fecha</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody id="taskList"></tbody>
+</table>
+    <script src="aplicacion.js" defer></script>    
+</body>
+</html>
